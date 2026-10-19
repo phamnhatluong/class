@@ -10,37 +10,18 @@
 
 /* ===== Cấu hình mặc định (theo video mẫu + cấu hình lưu trong URL gốc) ===== */
 const CONFIG = {
-  title: "Gửi chị, công chúa của em:3",
+  title: "Gửi mấy bn nữ của lớp 12A5:P",
   // Mật khẩu lấy từ cấu hình gốc của dự án (trường thứ 2 trong ?d=): 2009
-  passcode: "2009",
+  passcode: "",
   message:
-    "Chúc công chúa 20/10 thật hạnh phúc nhé! Mong rằng mỗi ngày trôi qua chị đều cảm thấy hạnh phúc ạa." +
-    "Chúc chị luôn luôn xinh đẹp như một đóa hoa, mọi chuyện buồn rùi sẽ chóng qua, " +
-    "bé iu chị nhìu lắm aa!",
+    "Chúc các bạn nữ lớp 12A5 " +
+    "luôn luôn xinh đẹp " +
+    "và thành công trên con đường mình đã chọn nhaa!",
   photos: [
-    "assets/stickers/1.jpg",
-    "assets/stickers/2.jpg",
-    "assets/stickers/3.jpg",
-    "assets/stickers/4.jpg",
-    "assets/stickers/5.jpg",
-    "assets/stickers/6.jpg",
-    "assets/stickers/7.jpg",
-    "assets/stickers/8.jpg",
-    "assets/stickers/9.jpg",
-    "assets/stickers/10.jpg",
-    "assets/stickers/11.jpg",
-    "assets/stickers/12.jpg",
-    "assets/stickers/13.jpg",
-    "assets/stickers/14.jpg",
-    "assets/stickers/15.jpg",
-    "assets/stickers/16.jpg",
-    "assets/stickers/17.jpg",
-    "assets/stickers/18.jpg",
-    "assets/stickers/19.jpg",
-    "assets/stickers/20.jpg",
-    "assets/stickers/21.jpg",
-    "assets/stickers/22.jpg",
-    "assets/stickers/23.jpg",
+    "assets/stickers/rabbit-1.svg",
+    "assets/stickers/rabbit-2.svg",
+    "assets/stickers/rabbit-3.svg",
+    "assets/stickers/rabbit-4.svg",
   ],
   // Đặt file nhạc vào n/i.mp3 (hoặc đổi đường dẫn ở đây / qua ?d=). Thiếu file thì nút nhạc tự vô hiệu.
   music: "n/i.mp3",
