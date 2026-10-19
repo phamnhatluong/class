@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="author" content="Devpan">
+    <meta name="description" content="Lovely – nơi chia sẻ yêu thương.">
+    <meta name="keywords" content="lập trình, thiết kế web, javascript, html, css">
+    <meta name="theme-color" content="#ffd1dc">
+    <title>Lovely</title>
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+
+    <!-- Font Mali (Google Fonts, có font dự phòng trong styles.css khi offline) -->
+    <link rel="stylesheet" href="./Lovely_files/css2.css">
+    <link rel="stylesheet" href="./Lovely_files/all.min.css">
+    <link rel="stylesheet" href="./Lovely_files/styles.css">
+    <style>
+        #loader-wrapper {
+            position: fixed; inset: 0; z-index: 9999;
+            background: radial-gradient(circle at center, #fff5f8 0%, #ffd1dc 100%);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        #loader-wrapper.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+        .loader-spinner { display: flex; gap: 8px; height: 20px; align-items: center; }
+        .loader-spinner span {
+            width: 12px; height: 12px; background: #ff5c8a; border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .loader-spinner span:nth-child(1) { animation-delay: -0.32s; }
+        .loader-spinner span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+        @media (prefers-reduced-motion: reduce) { .loader-spinner span { animation: none; } }
+    </style>
+</head>
+<body>
+    <noscript>Trang này cần bật JavaScript để hiển thị 💗</noscript>
+
+    <div id="loader-wrapper" aria-hidden="true">
+        <div class="loader-spinner"><span></span><span></span><span></span></div>
+    </div>
+
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div id="music-container"></div>
+
+    <!-- Giai đoạn A: nhập mật khẩu -->
+    <div id="lock-screen" class="screen active">
+        <div class="lock-container">
+            <h1 class="title">Nhập pass nha</h1>
+            <div class="pass-dots" role="img" aria-label="Đã nhập 0/4 số">
+                <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            </div>
+            <p class="lock-msg" id="lock-msg" role="status" aria-live="polite"></p>
+            <div class="numpad">
+                <button type="button" class="num-btn" data-key="1">1</button>
+                <button type="button" class="num-btn" data-key="2">2</button>
+                <button type="button" class="num-btn" data-key="3">3</button>
+                <button type="button" class="num-btn" data-key="4">4</button>
+                <button type="button" class="num-btn" data-key="5">5</button>
+                <button type="button" class="num-btn" data-key="6">6</button>
+                <button type="button" class="num-btn" data-key="7">7</button>
+                <button type="button" class="num-btn" data-key="8">8</button>
+                <button type="button" class="num-btn" data-key="9">9</button>
+                <button type="button" class="num-btn spacer" tabindex="-1" aria-hidden="true"></button>
+                <button type="button" class="num-btn" data-key="0">0</button>
+                <button type="button" class="num-btn" data-key="clear" aria-label="Xóa hết">❌</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Giai đoạn B: bó hoa (Three.js, vẽ trong app.js) -->
+    <div id="heart-screen" class="screen">
+        <div class="heart-glow"></div>
+        <canvas id="heart-canvas" aria-label="Bó hoa tulip"></canvas>
+        <button class="heart-fallback" id="heart-fallback" aria-label="Mở lời nhắn"><span aria-hidden="true">🌷</span></button>
+        <p class="heart-hint" id="heart-hint">Chạm vào bó hoa nhé 🌷</p>
+    </div>
+
+    <!-- Giai đoạn D: sticker bay -->
+    <div id="photo-sky" aria-hidden="true"></div>
+
+    <!-- Giai đoạn C: lá thư -->
+    <div id="modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="main-title">
+        <div class="modal-card">
+            <h1 id="main-title" class="main-title"></h1>
+            <div class="typing-text" id="typewriter"></div>
+            <button type="button" class="close-btn" id="close-btn">nhấn vào đây có bất ngờ</button>
+        </div>
+    </div>
+
+    <script src="./Lovely_files/three.min.js"></script>
+    <script src="./Lovely_files/lz-string.min.js"></script>
+    <script src="./Lovely_files/keypan.js"></script>
+    <script src="./Lovely_files/bootstrap.js"></script>
+    <script src="./Lovely_files/app.js"></script>
+</body>
+</html>
